@@ -2,10 +2,8 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
- use App\Recipe;
+use App\Recipe;
 use Faker\Generator as Faker;
-// use App\Http\Resources\RecipesCollection;
-// use App\Http\Resources\Recipes;
 
 $factory->define(Recipe::class, function (Faker $faker) {
     return [
@@ -14,6 +12,8 @@ $factory->define(Recipe::class, function (Faker $faker) {
         'directions' => $faker->text,
         // 'rating' => $faker->unsignedBigInteger,
         'nutrition_facts' => $faker->text,
-        // 'image' => $faker->imageUrl
+        'image'=>'https://source.unsplash.com/random',
     ];
 });
+$table->id();
+           

@@ -2,8 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\Recipes;
-// use App\Http\Resources\Recipes;
- use App\Recipe;
+use App\Recipe;
 
 
 
@@ -15,6 +14,6 @@ Route::get('/recipes', function () {
         return Recipes(Recipe::all());
     });
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

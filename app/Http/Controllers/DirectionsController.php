@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Resources\Recipes;
-use App\Recipe;
+use App\Http\Resources\Directions;
+use App\Direction;
 
 
-class RecipesController extends Controller
+class DirectionsController extends Controller
 {
     public function index ()
     {
-        return new Recipes(Recipe::all());
+    return new Directions(Direction::all());
     }
 }

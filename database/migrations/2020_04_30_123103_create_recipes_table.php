@@ -3,9 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-// use App\Http\Resources\RecipesCollection;
-// use App\Http\Resources\Recipes;
- use App\Recipe;
+use App\Recipe;
 
 class CreateRecipesTable extends Migration
 {
@@ -16,15 +14,18 @@ class CreateRecipesTable extends Migration
      */
     public function up()
     {
-        Schema::create('', function (Blueprint $table) {
+        Schema::create('recipes', function (Blueprint $table) {
             $table->id();
             $table->text('title');
-            $table->text('ingredients');
-            $table->text('directions');
-            // $table->unsignedBigInteger('rating');
-            $table->text('nutrition_facts');
-            // $table->imageUrl('image');
+            // $table->text('directions');
+            $table->string('image');
+            $table->integer('servings');
+            $table->integer('cooking_time');
             $table->timestamps();
+            // $table->unsignedBigInteger('user_id');
+            // $table->unsignedBigInteger('rating');
+            // $table->text('nutrition_facts');
+            // $table->text('ingredients');
 
         });
     }

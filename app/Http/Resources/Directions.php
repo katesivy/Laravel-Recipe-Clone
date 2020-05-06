@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 
-class Recipes extends ResourceCollection
+class Directions extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.

@@ -3,8 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\RecipesCollection;
-// use App\Http\Resources\Recipes;
- use App\Recipes;
+use App\Recipe;
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

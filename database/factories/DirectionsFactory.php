@@ -2,11 +2,11 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\categories;
+use App\Directions;
 use Faker\Generator as Faker;
 
-$factory->define(categories::class, function (Faker $faker) {
+$factory->define(Directions::class, function (Faker $faker) {
     return [
-        'title' => $faker->sentence
+        //
     ];
 });
