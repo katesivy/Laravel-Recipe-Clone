@@ -14,6 +14,6 @@ Route::get('/recipes', function () {
         return Recipes(Recipe::all());
     });
 
-// Auth::routes();
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

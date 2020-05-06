@@ -11,8 +11,14 @@ class Recipe extends Model
         return $this->hasMany('App\Direction');
     }
 
+    public function ingredients()
+    {
+        return $this->hasMany('App\Ingredient');
+    }
+    
     public function tags()
     {
         return $this->hasMany('App\Tag');
     }
+    
 }

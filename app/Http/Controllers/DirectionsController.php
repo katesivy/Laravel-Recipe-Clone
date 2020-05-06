@@ -13,4 +13,10 @@ class DirectionsController extends Controller
     {
     return new Directions(Direction::all());
     }
+
+
+    public function recipeIds ($recipe_id)
+    {
+        return Direction::where('recipe_id', $recipe_id)->get();
+    }
 }
