@@ -14,14 +14,14 @@ class RecipesSeeder extends Seeder
             [
             'id' => 1,
             'title' => "Chicken Stir Fry",
-            'image' => 'https://source.unsplash.com/random',
+            'image' => './Images/7BC770FB-61F6-414B-B1AE-3E3F2E724A03.jpeg',
             'servings' => 4,
             'cooking_time' => 45
             ],
             [
             'id' => 2,
             'title'=> "Peanut Butter & Jelly",
-            'image' => 'https://source.unsplash.com/random',
+            'image' => './Images/2FE51160-FB03-4716-B8C0-5766791547BE_1_105_c.jpeg',
             'servings' => 4,
             'cooking_time' => 3
             ]

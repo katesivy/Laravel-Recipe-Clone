@@ -15,10 +15,15 @@ class Recipe extends Model
     {
         return $this->hasMany('App\Ingredient');
     }
-    
+
     public function tags()
     {
         return $this->hasMany('App\Tag');
+    }
+
+    public function recipes_ingredients()
+    {
+        return $this->hasMany('App\Recipe_Ingredient');
     }
     
 }

@@ -29,3 +29,5 @@ Route::middleware('auth:api')->group(function() {
 Route::get('/recipes', 'RecipesController@index');
 Route::get('/directions/{recipe_id}', 'DirectionsController@recipeIds');
 Route::get('/ingredients/{recipe_id}', 'IngredientsController@recipeIds');
+Route::get('/tags/{recipe_id}', 'TagsController@recipeIds');
+Route::get('/recipe_ingredients/{recipe_id}', 'RecipesIngredientsController@recipeIds');
