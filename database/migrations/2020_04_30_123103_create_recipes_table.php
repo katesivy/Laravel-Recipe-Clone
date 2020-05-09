@@ -21,9 +21,8 @@ class CreateRecipesTable extends Migration
             $table->integer('servings');
             $table->integer('cooking_time');
             $table->timestamps();
-            // $table->unsignedBigInteger('user_id');
-            // $table->unsignedBigInteger('rating');
-            // $table->text('nutrition_facts');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

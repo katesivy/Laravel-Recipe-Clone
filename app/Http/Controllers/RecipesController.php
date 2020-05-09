@@ -11,6 +11,14 @@ class RecipesController extends Controller
 {
     public function index ()
     {
-        return new Recipes(Recipe::all());
+        return new Recipes(Recipe::with(['user', 'tags', 'directions', 'ingredients'])->get());
+    }
+
+    public function getRecipesByUser ($userId) 
+    {
+        return new Recipes(Recipe::with(['user', 'tags', 'directions', 'ingredients'])->where('user_id', $userId)
+        ->get());
+
+
     }
 }

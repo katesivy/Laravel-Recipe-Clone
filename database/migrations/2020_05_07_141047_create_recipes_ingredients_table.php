@@ -13,12 +13,16 @@ class CreateRecipesIngredientsTable extends Migration
      */
     public function up()
     {
-        Schema::create('recipe_ingredients', function (Blueprint $table) {
+        Schema::create('ingredient_recipes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('recipe_id');
+            $table->unsignedBigInteger('ingredient_id');
             $table->text('quantity');
             $table->timestamps();
             $table->foreign('recipe_id')->references('id')->on('recipes'); 
+            $table->foreign('ingredient_id')->references('id')->on('ingredients'); 
+             
+
         });
     }
 
@@ -29,6 +33,6 @@ class CreateRecipesIngredientsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recipes_ingrediets');
+        Schema::dropIfExists('ingredient_recipes');
     }
 }

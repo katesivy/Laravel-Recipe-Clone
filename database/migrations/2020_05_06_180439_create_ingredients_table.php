@@ -15,10 +15,10 @@ class CreateIngredientsTable extends Migration
     {
         Schema::create('ingredients', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('recipe_id');
             $table->text('ingredient');
             $table->timestamps();
-            $table->foreign('recipe_id')->references('id')->on('recipes'); 
+            // $table->foreign('id')->references('ingredient_id')->on('recipe_ingredients'); 
+            // $table->foreign('ingredient')->references('quantity')->on('recipe_ingredients'); 
         });
     }
 

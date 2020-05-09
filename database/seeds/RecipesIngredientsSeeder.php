@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\RecipeIngredient;
+use App\IngredientRecipes;
 
 class RecipesIngredientsSeeder extends Seeder
 {
@@ -14,19 +14,39 @@ class RecipesIngredientsSeeder extends Seeder
     {
         $recIngredArray = [
             [
-                'recipe_id' => 1,            
-                'quantity' => ['4', '2 cups', '4 cups, chopped', '2 tlb', '1 tlb', '1/2 C'] 
+                'recipe_id' => 1,           
+                'quantity' => [
+                    [
+                        'id' => 1,
+                        'amt' => '4'
+                    ], 
+                    [
+                        'id' => 2,
+                        'amt' => '2 cups'
+                    ], 
+                    // '4 cups, chopped', '2 tlb', '1 tlb', '1/2 C'] 
+                ],
             ],
             [
-                'recipe_id' => 2,
-                'quantity' => ['4 tlb', '4 tlb', '2 slices']
+                'recipe_id' => 2,             
+                'quantity' => [
+                    [
+                    'id' => 7,
+                    'amt' =>  '4 tlb',
+                    ],
+                    [
+                    'id' => 8,
+                    'amt' =>  '2 slices',
+                    ]
+                ]
             ]
         ];
         foreach ($recIngredArray as &$recIngredObj) {
             foreach ($recIngredObj['quantity'] as &$recIngred) {
-                RecipeIngredient::create([
+                IngredientRecipes::create([
                     'recipe_id' => $recIngredObj['recipe_id'],
-                    'quantity' => $recIngred
+                    'ingredient_id' => $recIngred['id'],
+                    'quantity' => $recIngred['amt']
                 ]);
             }
         }

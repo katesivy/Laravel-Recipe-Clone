@@ -11,19 +11,19 @@ class Recipe extends Model
         return $this->hasMany('App\Direction');
     }
 
-    public function ingredients()
-    {
-        return $this->hasMany('App\Ingredient');
-    }
-
     public function tags()
     {
-        return $this->hasMany('App\Tag');
+        return $this->hasMany('App\RecipeTag');
     }
 
-    public function recipes_ingredients()
+    public function ingredients()
     {
-        return $this->hasMany('App\Recipe_Ingredient');
+        return $this->belongsToMany('App\Ingredient', 'ingredient_recipes')->withPivot('quantity');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
     }
     
 }

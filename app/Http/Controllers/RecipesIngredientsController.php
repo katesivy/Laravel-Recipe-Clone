@@ -9,7 +9,7 @@ class RecipesIngredientsController extends Controller
 {
     public function index ()
     {
-    return new RecipesIngredients(RecipeIngredient::all());
+        return new RecipesIngredients(RecipeIngredient::all());
     }
 
     public function recipeIds ($recipe_id)

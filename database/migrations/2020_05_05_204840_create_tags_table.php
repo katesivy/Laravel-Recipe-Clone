@@ -15,10 +15,9 @@ class CreateTagsTable extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('recipe_id');
             $table->text('category');
             $table->timestamps();
-            $table->foreign('recipe_id')->references('id')->on('recipes');
+            
         });
     }
 
