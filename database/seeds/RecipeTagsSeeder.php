@@ -5,17 +5,32 @@ use App\RecipeTag;
 
 class RecipeTagsSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-        $RecipeTag = [
-            'recipe_id' => 1,
-            'tag_id' => 1
+        $recipeTagArray = [
+            [
+                'recipe_id' => 1,
+                'tag_id' => 4
+            ],
+            [
+                'recipe_id' => 1,
+                'tag_id' => 6
+            ],
+            [
+                'recipe_id' => 2,
+                'tag_id' => 2
+            ],
+            [
+                'recipe_id' => 2,
+                'tag_id' => 7
+            ],
+            [
+                'recipe_id' => 2,
+                'tag_id' => 8
+            ]
         ];
-        RecipeTag::create($RecipeTag);
+        foreach ($recipeTagArray as &$RecipeTag) {
+            RecipeTag::create($RecipeTag);
+        }
     }
 }

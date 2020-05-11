@@ -17,16 +17,10 @@ class CreateIngredientsTable extends Migration
             $table->id();
             $table->text('ingredient');
             $table->timestamps();
-            // $table->foreign('id')->references('ingredient_id')->on('recipe_ingredients'); 
-            // $table->foreign('ingredient')->references('quantity')->on('recipe_ingredients'); 
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+  
     public function down()
     {
         Schema::dropIfExists('ingredients');

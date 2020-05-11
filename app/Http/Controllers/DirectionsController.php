@@ -19,4 +19,9 @@ class DirectionsController extends Controller
     {
         return Direction::where('recipe_id', $recipe_id)->get();
     }
+
+    public function recipeTags ($tag_id)
+    {
+        return Direction::where('tag_id', $tag_id)->get();
+    }
 }

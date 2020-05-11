@@ -8,6 +8,6 @@ class Tag extends Model
 {
     public function recipe()
     {
-        return $this->belongsTo('App\Recipe');
+        return $this->belongsToMany('App\Recipe', 'recipe_tags');
     }
 }

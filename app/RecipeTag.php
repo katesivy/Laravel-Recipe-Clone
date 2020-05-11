@@ -10,4 +10,8 @@ class RecipeTag extends Model
     {
         return $this->belongsTo('App\Tag');
     }
+    public function recipe()
+    {
+        return $this->belongsTo('App\Recipe');
+    }
 }

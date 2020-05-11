@@ -16,7 +16,7 @@ Route::post('/login', 'AuthController@login');
 Route::middleware('auth:api')->group(function() {
 
     Route::get('user/{userId}/detail', 'UserController@show');
-    // Route
+    
 });
 
 // Route::get('/recipes', function () {
@@ -28,5 +28,8 @@ Route::get('/recipes', 'RecipesController@index');
 Route::get('/directions/{recipe_id}', 'DirectionsController@recipeIds');
 Route::get('/ingredients/{recipe_id}', 'IngredientsController@recipeIds');
 Route::get('/tags/{recipe_id}', 'TagsController@recipeIds');
-Route::get('/recipe_ingredients/{recipe_id}', 'RecipesIngredientsController@recipeIds');
+Route::get('/type/{recipe_id}', 'RecipesIngredientsController@recipeTags');
+Route::get('/diet/{recipe_id}', 'RecipesIngredientsController@recipeTags');
+Route::get('/mains/{recipe_id}', 'RecipesIngredientsController@recipeTags');
+Route::get('/method/{recipe_id}', 'RecipesIngredientsController@recipeTags');
 

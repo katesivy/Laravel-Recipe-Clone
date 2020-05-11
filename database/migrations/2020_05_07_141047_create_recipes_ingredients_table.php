@@ -26,11 +26,7 @@ class CreateRecipesIngredientsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists('ingredient_recipes');

@@ -15,7 +15,7 @@ class DirectionsSeeder extends Seeder
             ],
             [
                 'recipe_id' => 2,
-                'directions' => ['make a sandwich', '  eat']
+                'directions' => ['make a sandwich', 'eat']
             ]
         ];
         // Direction::create($directionsArray[0]);

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\Recipes;
 use App\Recipe;
 
@@ -17,3 +18,8 @@ Route::get('/recipes', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Auth::login($user);
+
+// // Login and "remember" the given user...
+// Auth::login($user, true);
