@@ -8,10 +8,10 @@ class RecipeTagsSeeder extends Seeder
     public function run()
     {
         $recipeTagArray = [
-            [
-                'recipe_id' => 1,
-                'tag_id' => 4
-            ],
+            // [
+            //     'recipe_id' => 1,
+            //     'tag_id' => 4
+            // ],
             [
                 'recipe_id' => 1,
                 'tag_id' => 6

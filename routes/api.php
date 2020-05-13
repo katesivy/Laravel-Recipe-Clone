@@ -28,8 +28,8 @@ Route::get('/recipes', 'RecipesController@index');
 Route::get('/directions/{recipe_id}', 'DirectionsController@recipeIds');
 Route::get('/ingredients/{recipe_id}', 'IngredientsController@recipeIds');
 Route::get('/tags/{recipe_id}', 'TagsController@recipeIds');
-Route::get('/type/{recipe_id}', 'RecipesIngredientsController@recipeTags');
-Route::get('/diet/{recipe_id}', 'RecipesIngredientsController@recipeTags');
-Route::get('/mains/{recipe_id}', 'RecipesIngredientsController@recipeTags');
-Route::get('/method/{recipe_id}', 'RecipesIngredientsController@recipeTags');
+// Route::get('/type/{recipe_id}', 'RecipesIngredientsController@recipeTags');
+// Route::get('/diet/{recipe_id}', 'RecipesIngredientsController@recipeTags');
+// Route::get('/mains/{recipe_id}', 'RecipesIngredientsController@recipeTags');
+// Route::get('/method/{recipe_id}', 'RecipesIngredientsController@recipeTags');
 
