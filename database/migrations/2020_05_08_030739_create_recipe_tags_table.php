@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateRecipeTagsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+ 
     public function up()
     {
         Schema::create('recipe_tags', function (Blueprint $table) {
@@ -23,11 +19,7 @@ class CreateRecipeTagsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+  
     public function down()
     {
         Schema::dropIfExists('recipe_tags');

@@ -2,57 +2,56 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
-
-use App\User;
 use Illuminate\Http\Request;
+use App\User;
+
 
 class AuthController extends Controller
 {
-    protected function generateAccessToken($user)
-    {
-        $token = $user->createToken($user->email.'-'.now());
-
-        return $token->accessToken;
-    }
-
-
-    public function register(Request $request)
-    {
-        $request->validate([
-            'name' => 'required', 
-            'email' => 'required|email', 
-            'password' => 'required|min:6'
-        ]);
-
-
-        $user = User::create([
-            'name' => $request->name, 
-            'email' => $request->email, 
-            'password' => bcrypt($request->password)
-        ]);
-
-        return response()->json($user);
-    }
-
-    
-
     public function login(Request $request)
     {
         $request->validate([
-        'email' => 'required|email|exists:users,email', 
-        'password' => 'required'
+            'username' => 'required|username|exists:users,username',
+            'password' => 'required'
+            // 'email' => 'required|email|exists:users,email',
         ]);
-
-        if( Auth::attempt(['email'=>$request->email, 'password'=>$request->password]) ) {
-        $user = Auth::user();
-
-        $token = $user->createToken($user->email.'-'.now());
-
-        return response()->json([
-            'token' => $token->accessToken
-             ]);
+        if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
+            $user = Auth::user();
+            $token = $user->createToken($user->username . '-' . now());
+            // $token = $user->createToken($user->email . '-' . now());
+            return response()->json([
+                'token' => $token->accessToken,
+                'user' => $user
+            ]);
         }
     }
 
+    public function logout(Request $request)
+    {
+        $request->user()->token()->revoke();
+        $request->user()->token()->delete();
+        $response = "You have been successfully logged out!";
+        return response($response, 200);
+    }
+    public function register(Request $request)
+    {
+        $this->validate(request(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+        $user = User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+        $token = $user->createToken('Laravel Password Grant Client')->accessToken;
+        $token = $user->createToken($user->email . '-' . now());
+        return response()->json([
+            'token' => $token->accessToken,
+            'user' => $user
+        ]);
+        return response($response, 200);
+    }
 
 }
