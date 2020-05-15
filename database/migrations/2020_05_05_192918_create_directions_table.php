@@ -17,17 +17,12 @@ class CreateDirectionsTable extends Migration
         Schema::create('directions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('recipe_id');
-            $table->text('direction');
+            $table->text('direction')->nullable();
             $table->timestamps();
             $table->foreign('recipe_id')->references('id')->on('recipes'); 
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('directions');

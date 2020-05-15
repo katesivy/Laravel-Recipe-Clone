@@ -18,7 +18,5 @@ class RecipesController extends Controller
     {
         return new Recipes(Recipe::with(['user', 'tags', 'directions', 'ingredients'])->where('user_id', $userId)
         ->get());
-
-
     }
 }

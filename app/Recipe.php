@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Recipe extends Model
 {
+    protected $guarded = []; 
     public function directions()
     {
         return $this->hasMany('App\Direction');

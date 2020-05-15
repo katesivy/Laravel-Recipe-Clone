@@ -12,9 +12,9 @@ class CreateRecipesTable extends Migration
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
             $table->text('title');
-            $table->string('image');
-            $table->integer('servings');
-            $table->integer('cooking_time');
+            $table->string('image')->nullable();
+            $table->integer('servings')->nullable();
+            $table->integer('cooking_time')->nullable();
             $table->timestamps();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');

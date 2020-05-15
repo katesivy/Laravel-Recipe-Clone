@@ -11,7 +11,7 @@ class DirectionsController extends Controller
 {
     public function index ()
     {
-    return new Directions(Direction::all());
+        return new Directions(Direction::all());
     }
 
 

@@ -13,6 +13,12 @@ class IngredientsSeeder extends Seeder
             ],
             [
                 'ingredients' => ['peanut butter', 'jelly', 'bread']
+            ],
+            [
+                'ingredients' => ['sugar', 'eggs', 'flour']
+            ],
+            [
+                'ingredients' => ['salt', 'chocolate chips', 'pepper']
             ]
         ];
          foreach ($ingredientsArray as &$IngredientsObj) {

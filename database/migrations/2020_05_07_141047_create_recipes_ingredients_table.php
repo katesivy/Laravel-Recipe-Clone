@@ -6,18 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateRecipesIngredientsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('ingredient_recipes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('recipe_id');
             $table->unsignedBigInteger('ingredient_id');
-            $table->text('quantity');
+            $table->text('quantity')->nullable();
             $table->timestamps();
             $table->foreign('recipe_id')->references('id')->on('recipes'); 
             $table->foreign('ingredient_id')->references('id')->on('ingredients'); 

@@ -11,7 +11,7 @@ class UserController extends Controller
     {
         $user = User::find($userId);
 
-        if($user) {
+        if ($user) {
             return response()->json($user);
         }
 

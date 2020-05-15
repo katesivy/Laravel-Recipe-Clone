@@ -13,11 +13,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/register', 'AuthController@register');
 Route::post('/login', 'AuthController@login');
 Route::post('/logout', 'AuthController@logout');
+Route::post('/createform', 'AuthController@createform');
+Route::middleware('auth:api')->group(function () {
 
-Route::middleware('auth:api')->group(function() {
-
-    Route::get('user/{userId}/detail', 'UserController@show');
-    
+Route::get('user/{userId}/detail', 'UserController@show');
 });
 
 Route::get('/getRecipesByUser/{user_id}', 'RecipesController@getRecipesByUser');
