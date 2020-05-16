@@ -19,9 +19,17 @@ class RecipesSeeder extends Seeder
             ],
             [
             'id' => 2,
-            'title'=> "Peanut Butter & Jelly",
+            'title'=> "Grilled Cheese Sandwich",
             'image' => './Images/sandwich.jpeg',
-            'servings' => 4,
+            'servings' => 1,
+            'cooking_time' => 10,
+            'user_id' => 1
+            ],
+            [
+            'id' => 3,
+            'title'=> "Quiche",
+            'image' => './Images/quiche.jpeg',
+            'servings' => 6,
             'cooking_time' => 3,
             'user_id' => 1
             ]

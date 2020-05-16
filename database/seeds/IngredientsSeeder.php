@@ -12,13 +12,19 @@ class IngredientsSeeder extends Seeder
                 'ingredients' => ['chicken thighs', 'rice', 'broccoli', 'powdered ginger',  'paprika', 'coconut aminos'],
             ],
             [
-                'ingredients' => ['peanut butter', 'jelly', 'bread']
+                'ingredients' => ['cheddar cheese', 'jelly', 'bread']
             ],
             [
-                'ingredients' => ['sugar', 'eggs', 'flour']
+                'ingredients' => ['sugar', 'eggs', 'flour', 'almond flour']
             ],
             [
-                'ingredients' => ['salt', 'chocolate chips', 'pepper']
+                'ingredients' => ['butter', 'chocolate chips', 'cocoa powder']
+            ],
+            [
+                'ingredients' => ['milk', 'sour cream', 'mozzarella cheese', 'spinach']
+            ],
+            [
+                'ingredients' => ['nutmeg', 'salt', 'pepper', 'chili powder']
             ]
         ];
          foreach ($ingredientsArray as &$IngredientsObj) {

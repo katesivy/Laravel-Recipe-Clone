@@ -1,12 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Ingredient;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\User;
 use App\Recipe;
 // use App\App\Http\Controllers\Log;
 use Illuminate\Support\Facades\Log;
+use App\IngredientRecipes;
+use Illuminate\Support\Facades\Hash;
 
 
 class AuthController extends Controller
@@ -16,7 +20,7 @@ class AuthController extends Controller
         $request->validate([
             // 'name' => 'required|name|exists:users,name',
             'password' => 'required',
-             'email' => 'required|email|exists:users,email'
+            'email' => 'required|email|exists:users,email'
         ]);
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $user = Auth::user();
@@ -71,20 +75,39 @@ class AuthController extends Controller
             // 'tags' => 'required',
         ]);
 
-        Log::info($request);
+        // Log::info($request);
         $recipe = Recipe::create([
             'title' => $request['title'],
-            // 'ingredient' => $request['ingredient'],
-            // 'direction' => $request['direction'],
-            // 'quantity' => $request['quantity'],
             'servings' => $request['servings'],
             'cooking_time' => $request['cooking_time'],
             'image' => $request['image'],
-            // 'tags' => $request['tags'],
-            'user_id' => 1
-            ]);
-       
-        return response("OK", 200);
-    }
+            'user_id' => 'user_id'
+        ]);
 
+        // $direction = Direction::create([
+        //     'direction' => $request['direction'],
+        // ]);
+
+        // $ingredient = Ingredient::create([
+        //     'ingredient' => $request['ingredient'],
+        // ]);
+
+        // $tags = Tag::create([
+        //     'category' => $request['tag'],
+        // ]);
+            // loop thru request ingredients[0] equivalent to {ingrendient: 0, quantiy:3cups}
+            // create IngredientRecipes for each ingredient w/ quantity 
+            // start loop
+            $item = IngredientRecipes::create([
+                'quantity' => $request['quantity'],
+                'recipe_id' => $recipe->id,
+                'ingredient_id' => $request[''],
+
+            ]);
+            // end loop
+
+
+
+        return response("submit worked", 200);
+    }
 }

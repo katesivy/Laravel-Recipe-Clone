@@ -14,29 +14,89 @@ class RecipesIngredientsSeeder extends Seeder
     {
         $recIngredArray = [
             [
-                'recipe_id' => 1,           
+                'recipe_id' => 1,
                 'quantity' => [
                     [
                         'id' => 1,
                         'amt' => '4'
-                    ], 
+                    ],
                     [
                         'id' => 2,
                         'amt' => '2 cups'
-                    ], 
-                    // '4 cups, chopped', '2 tlb', '1 tlb', '1/2 C'] 
+                    ],
+                    [
+                        'id' => 3,
+                        'amt' => '4 cups chopped'
+                    ],
+                    [
+                        'id' => 4,
+                        'amt' => '2 tlb'
+                    ],
+                    [
+                        'id' => 5,
+                        'amt' => '1 tlb'
+                    ],
+                    [
+                        'id' => 6,
+                        'amt' => '1/2 Cup'
+                    ]
                 ],
             ],
             [
-                'recipe_id' => 2,             
+                'recipe_id' => 2,
                 'quantity' => [
                     [
-                    'id' => 7,
-                    'amt' =>  '4 tlb',
+                        'id' => 7,
+                        'amt' =>  '4 oz.',
                     ],
                     [
-                    'id' => 8,
-                    'amt' =>  '2 slices',
+                        'id' => 9,
+                        'amt' =>  '2 slices',
+                    ]
+                ]
+            ],
+            [
+                'recipe_id' => 3,
+                'quantity' => [
+                    [
+                        'id' => 13,
+                        'amt' =>  '1.5 Cups',
+                    ],
+                    [
+                        'id' => 14,
+                        'amt' =>  '4 tlb melted',
+                    ],
+                    [
+                        'id' => 11,
+                        'amt' =>  '8',
+                    ],
+                    [
+                        'id' => 17,
+                        'amt' =>  '1/2 Cup',
+                    ],
+                    [
+                        'id' => 18,
+                        'amt' =>  '1/2 Cup',
+                    ],
+                    [
+                        'id' => 19,
+                        'amt' =>  '2 Cups',
+                    ],
+                    [
+                        'id' => 20,
+                        'amt' =>  '3 Cups, wilted',
+                    ],
+                    [
+                        'id' => 21,
+                        'amt' =>  'dash',
+                    ],
+                    [
+                        'id' => 22,
+                        'amt' =>  '1/2 tsp',
+                    ],
+                    [
+                        'id' => 23,
+                        'amt' =>  '1/4 tsp',
                     ]
                 ]
             ]

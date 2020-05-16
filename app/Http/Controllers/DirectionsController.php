@@ -9,6 +9,7 @@ use App\Direction;
 
 class DirectionsController extends Controller
 {
+    protected $guarded = []; 
     public function index ()
     {
         return new Directions(Direction::all());

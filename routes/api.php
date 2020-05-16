@@ -22,6 +22,8 @@ Route::get('user/{userId}/detail', 'UserController@show');
 Route::get('/getRecipesByUser/{user_id}', 'RecipesController@getRecipesByUser');
 
 Route::get('/recipes', 'RecipesController@index');
+Route::get('/ingredients', 'IngredientsController@index');
+Route::get('/tags', 'TagsController@index');
 Route::get('/directions/{recipe_id}', 'DirectionsController@recipeIds');
 Route::get('/ingredients/{recipe_id}', 'IngredientsController@recipeIds');
 Route::get('/tags/{recipe_id}', 'TagsController@recipeIds');

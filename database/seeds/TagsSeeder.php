@@ -37,7 +37,7 @@ class TagsSeeder extends Seeder
                 'category' => "chicken",
             ],
             [
-                'category' => "beef",
+                'category' => "broccoli",
             ],
             [
                 'category' => "rice",
@@ -55,7 +55,7 @@ class TagsSeeder extends Seeder
                 'category' => "slow cooker",
             ],
             [
-                'category' => "one dish meals"
+                'category' => "one dish"
             ]
         ];
         //  Recipe::create($tagsArray[0]);
