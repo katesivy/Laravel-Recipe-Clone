@@ -25,4 +25,55 @@ class RecipesController extends Controller
         return new RecipesResource(Ingredient::with(['ingredients'])
         ->get());
     }
+
+
+
+
+    // public function create ()
+    // {
+    //     $recipe = Recipe::store([
+    //         'title' => $request['title'],
+    //         'servings' => $request['servings'],
+    //         'cooking_time' => $request['cooking_time'],
+    //         'image' => $request['image'],
+    //         'user_id' => 4
+    //     ]);
+
+    //     $recipe->save();
+    // }
+
+    // public function store ()
+    // {
+    //     $recipe = Recipe::store([
+    //         'title' => $request['title'],
+    //         'servings' => $request['servings'],
+    //         'cooking_time' => $request['cooking_time'],
+    //         'image' => $request['image'],
+    //         'user_id' => 4
+    //     ]);
+    // }
+
+    // public function edit () 
+    // {
+
+    // }
+
+    // public function update () 
+    // {
+        // $recipe = Recipe::update([
+            //         'title' => $request['title'],
+            //         'servings' => $request['servings'],
+            //         'cooking_time' => $request['cooking_time'],
+            //         'image' => $request['image'],
+            //         'user_id' => 4
+            //     ]);
+        
+            //     $recipe->save();
+    // }
+
+    // public function destroy () 
+    // {
+
+    // }
 }
+

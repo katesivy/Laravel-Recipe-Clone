@@ -25,7 +25,6 @@ class AuthController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $user = Auth::user();
             $token = $user->createToken($user->email . '-' . now());
-            // $token = $user->createToken($user->email . '-' . now());
             return response()->json([
                 'token' => $token->accessToken,
                 'user' => $user
@@ -58,7 +57,7 @@ class AuthController extends Controller
             'token' => $token->accessToken,
             'user' => $user
         ]);
-        return response($response, 200);
+        
     }
 
     public function createform(Request $request)
@@ -81,7 +80,7 @@ class AuthController extends Controller
             'servings' => $request['servings'],
             'cooking_time' => $request['cooking_time'],
             'image' => $request['image'],
-            'user_id' => 'user_id'
+            'user_id' => 4
         ]);
 
         // $direction = Direction::create([
@@ -98,12 +97,12 @@ class AuthController extends Controller
             // loop thru request ingredients[0] equivalent to {ingrendient: 0, quantiy:3cups}
             // create IngredientRecipes for each ingredient w/ quantity 
             // start loop
-            $item = IngredientRecipes::create([
-                'quantity' => $request['quantity'],
-                'recipe_id' => $recipe->id,
-                'ingredient_id' => $request[''],
+            // $item = IngredientRecipes::create([
+            //     'quantity' => $request['quantity'],
+            //     'recipe_id' => $recipe->id,
+            //     'ingredient_id' => $request[''],
 
-            ]);
+            // ]);
             // end loop
 
 
