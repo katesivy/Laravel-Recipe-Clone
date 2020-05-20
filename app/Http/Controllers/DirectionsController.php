@@ -1,18 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-use App\Http\Resources\Directions;
+use App\Http\Resources\DirectionsResource;
 use App\Direction;
-
 
 class DirectionsController extends Controller
 {
     protected $guarded = []; 
     public function index ()
     {
-        return new Directions(Direction::all());
+        return new DirectionsResource(Direction::all());
     }
 
 

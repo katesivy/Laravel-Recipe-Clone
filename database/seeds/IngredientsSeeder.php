@@ -25,14 +25,36 @@ class IngredientsSeeder extends Seeder
             ],
             [
                 'ingredients' => ['nutmeg', 'salt', 'pepper', 'chili powder']
+            ],
+            [
+                'ingredients' => ['lettuce', 'tomato', 'green pepper', 'apples']
+            ],
+            [
+                'ingredients' => ['peanut butter', 'almonds', 'pecans', 'almond butter']
+            ],
+            [
+                'ingredients' => ['black beans', 'kidney beans', 'diced tomatoes', 'jalepenos']
+            ],
+            [
+                'ingredients' => ['chorizo', 'chicken breasts', 'ground beef', 'ground pork']
+            ],
+            [
+                'ingredients' => ['cumin', 'oregano', 'paprika', 'garlic']
+            ],
+            [
+                'ingredients' => ['spaghetti noodles', 'macaroni noodles', 'rotini', 'penne']
+            ],
+            [
+                'ingredients' => ['baking powder', 'baking soda', 'cream', 'vanilla extract']
             ]
+
         ];
-         foreach ($ingredientsArray as &$IngredientsObj) {
-             foreach ($IngredientsObj['ingredients'] as &$Ingredient) {
+        foreach ($ingredientsArray as &$IngredientsObj) {
+            foreach ($IngredientsObj['ingredients'] as &$Ingredient) {
                 Ingredient::create([
                     'ingredient' => $Ingredient
                 ]);
             }
-       }
+        }
     }
 }

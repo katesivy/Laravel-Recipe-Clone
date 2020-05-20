@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Ingredient;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\User;
 use App\Recipe;
+use App\Direction;
+use App\IngredientRecipes;
+use App\RecipeTag;
 // use App\App\Http\Controllers\Log;
 use Illuminate\Support\Facades\Log;
-use App\IngredientRecipes;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -39,6 +40,7 @@ class AuthController extends Controller
         $response = "You have been successfully logged out!";
         return response($response, 200);
     }
+
     public function register(Request $request)
     {
         $this->validate(request(), [
@@ -74,39 +76,38 @@ class AuthController extends Controller
             // 'tags' => 'required',
         ]);
 
-        // Log::info($request);
+        Log::info($request);
         $recipe = Recipe::create([
             'title' => $request['title'],
             'servings' => $request['servings'],
             'cooking_time' => $request['cooking_time'],
             'image' => $request['image'],
-            'user_id' => 4
+            'user_id' => $request['user_id']
         ]);
 
-        // $direction = Direction::create([
-        //     'direction' => $request['direction'],
-        // ]);
-
-        // $ingredient = Ingredient::create([
-        //     'ingredient' => $request['ingredient'],
-        // ]);
-
-        // $tags = Tag::create([
-        //     'category' => $request['tag'],
-        // ]);
-            // loop thru request ingredients[0] equivalent to {ingrendient: 0, quantiy:3cups}
-            // create IngredientRecipes for each ingredient w/ quantity 
-            // start loop
-            // $item = IngredientRecipes::create([
-            //     'quantity' => $request['quantity'],
-            //     'recipe_id' => $recipe->id,
-            //     'ingredient_id' => $request[''],
-
-            // ]);
-            // end loop
-
-
+        $direction = Direction::create([
+            'direction' => $request['direction'],
+            'recipe_id' => $recipe->id
+        ]);
+        
+        // collection as item
+        // db field => reactObj->name of item in obj.
+        foreach ($request['ingredient'] as $ingredient) {
+            $ingredientObject = IngredientRecipes::create([
+                'recipe_id' => $recipe->id,                    
+                'ingredient_id' => $ingredient['ingredient_id'],
+                'quantity' => $ingredient['quantity']
+            ]);
+        }
+        
+        foreach ($request['tags'] as  $tag) {
+            $tagArray = RecipeTag::create([
+                'recipe_id' => $recipe->id, 
+                'tag_id' => $tag['tag_id'],
+            ]);
+        }
 
         return response("submit worked", 200);
-    }
+   }
+
 }
