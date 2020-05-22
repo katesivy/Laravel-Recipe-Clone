@@ -8,7 +8,7 @@ class RecipeTagsController extends Controller
 {
     public function index ()
     {
-    return new RecipeTags(RecipeTag::all());
+        return new RecipeTags(RecipeTag::all());
     }
 
     public function recipeIds ($recipe_id)

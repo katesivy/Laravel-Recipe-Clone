@@ -9,6 +9,7 @@ use App\Recipe;
 use App\Direction;
 use App\IngredientRecipes;
 use App\RecipeTag;
+use App\Http\Resources\RecipesResource;
 // use App\App\Http\Controllers\Log;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Hash;
@@ -65,18 +66,6 @@ class AuthController extends Controller
     public function createform(Request $request)
     {
         // Log::info($request);
-        $this->validate(request(), [
-            // 'title' => 'required',
-            // 'ingredient' => 'required',
-            // 'direction' => 'required',
-            // 'quantity' => 'required',
-            // 'servings' => 'required',
-            // 'cooking_time' => 'required',
-            // 'image' => 'required',
-            // 'tags' => 'required',
-        ]);
-
-        Log::info($request);
         $recipe = Recipe::create([
             'title' => $request['title'],
             'servings' => $request['servings'],
@@ -90,8 +79,6 @@ class AuthController extends Controller
             'recipe_id' => $recipe->id
         ]);
         
-        // collection as item
-        // db field => reactObj->name of item in obj.
         foreach ($request['ingredient'] as $ingredient) {
             $ingredientObject = IngredientRecipes::create([
                 'recipe_id' => $recipe->id,                    
@@ -107,7 +94,41 @@ class AuthController extends Controller
             ]);
         }
 
-        return response("submit worked", 200);
+        return new RecipesResource(Recipe::with(['user', 'tags', 'directions', 'ingredients'])->get());
+   }
+    public function updateform(Request $request, Recipe $recipe)
+    {
+        // Log::info($request);
+        // $recipe->title = $request->title;
+        $recipe->update([
+            'title' => $request['title'],
+            'servings' => $request['servings'],
+            'cooking_time' => $request['cooking_time'],
+            'image' => $request['image'],
+            'user_id' => $request['user_id']
+        ]);
+
+        $direction = Direction::update([
+            'direction' => $request['direction'],
+            'recipe_id' => $recipe->id
+        ]);
+        
+        foreach ($request['ingredient'] as $ingredient) {
+            $ingredientObject = IngredientRecipes::update([
+                'recipe_id' => $recipe->id,                    
+                'ingredient_id' => $ingredient['ingredient_id'],
+                'quantity' => $ingredient['quantity']
+            ]);
+        }
+        
+        foreach ($request['tags'] as  $tag) {
+            $tagArray = RecipeTag::update([
+                'recipe_id' => $recipe->id, 
+                'tag_id' => $tag['tag_id'],
+            ]);
+        }
+
+        return new RecipesResource(Recipe::with(['user', 'tags', 'directions', 'ingredients'])->get());
    }
 
 }

@@ -18,6 +18,11 @@ class UsersSeeder extends Seeder
             'email' => 'kate@domain.com',
             'password' => HASH::make('changeme'),
         ];
+        // $User = [
+        //     'name' => 'Sally',
+        //     'email' => 'sally@gmail.com',
+        //     'password' => HASH::make('changeme'),
+        // ];
         User::create($User);
     }
 }

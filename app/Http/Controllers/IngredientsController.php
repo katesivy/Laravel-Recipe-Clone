@@ -9,8 +9,7 @@ class IngredientsController extends Controller
 {
     public function index ()
     {
-        return new IngredientsResource(Ingredient::all());
-        // ->orderBy('ingredient', 'desc')
+        return new IngredientsResource(Ingredient::orderBy('ingredient', 'asc')->get());
     }
 
     public function recipeIds ($recipe_id)

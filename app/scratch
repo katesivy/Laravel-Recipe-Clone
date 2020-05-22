@@ -1,0 +1,7 @@
+./cloud_sql_proxy -instances=recipe-final-project:us-central1:recipe-final-project=tcp:3306
+
+gcloud sql instances describe recipe-final-project | grep connectionName
+
+gcloud sql databases create laravel --instance=recipe-final-project
+
+DB_SOCKET=/Applications/MAMP/tmp/mysql/mysql.sock

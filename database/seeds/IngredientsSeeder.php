@@ -45,7 +45,13 @@ class IngredientsSeeder extends Seeder
                 'ingredients' => ['spaghetti noodles', 'macaroni noodles', 'rotini', 'penne']
             ],
             [
-                'ingredients' => ['baking powder', 'baking soda', 'cream', 'vanilla extract']
+                'ingredients' => ['baking powder', 'baking soda', 'heavy cream', 'vanilla extract']
+            ],
+            [
+                'ingredients' => ['onion', 'celery', 'carrots', 'mushrooms']
+            ],
+            [
+                'ingredients' => ['chicken broth', 'beef broth', 'water', 'tomato sauce']
             ]
 
         ];
