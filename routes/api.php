@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\RecipesCollection;
@@ -13,12 +14,26 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/register', 'AuthController@register');
 Route::post('/login', 'AuthController@login');
 Route::post('/createform', 'AuthController@createform');
+// Route::post('/updateform/{recipe}', 'AuthController@updateform');
 
-// Route::post('/store', 'RecipesController@store');
 Route::middleware('auth:api')->group(function () {
     Route::post('/logout', 'AuthController@logout');
     Route::get('user/{userId}/detail', 'UserController@show');
 });
+
+// Route::middleware('auth:api')->put('recipe/{info}', function (Request $request, $recipeId) {
+//     try {
+//         $recipe = Recipe::findOrFail($recipeId);
+//     } catch (ModelNotFoundException $e) {
+//         return response()->json([
+//             'message' => 'Recipe not found.'
+//         ], 403);
+//     }
+
+//     $recipe->update($request->all());
+
+//     return response()->json(['message'=>'Recipe updated successfully.']);
+// });
 
 Route::get('/getRecipesByUser/{user_id}', 'RecipesController@getRecipesByUser');
 
