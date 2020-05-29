@@ -39,7 +39,7 @@ class IngredientsSeeder extends Seeder
                 'ingredients' => ['chorizo', 'chicken breasts', 'ground beef', 'ground pork']
             ],
             [
-                'ingredients' => ['cumin', 'oregano', 'paprika', 'garlic']
+                'ingredients' => ['cumin', 'oregano', 'onion powder', 'garlic']
             ],
             [
                 'ingredients' => ['spaghetti noodles', 'macaroni noodles', 'rotini', 'penne']

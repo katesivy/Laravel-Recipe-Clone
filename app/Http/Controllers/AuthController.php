@@ -10,6 +10,7 @@ use App\Direction;
 use App\IngredientRecipes;
 use App\RecipeTag;
 use App\Http\Resources\RecipesResource;
+use App\Ingredient;
 // use App\App\Http\Controllers\Log;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Hash;
@@ -60,7 +61,6 @@ class AuthController extends Controller
             'token' => $token->accessToken,
             'user' => $user
         ]);
-        
     }
 
     public function createform(Request $request)
@@ -78,57 +78,102 @@ class AuthController extends Controller
             'direction' => $request['direction'],
             'recipe_id' => $recipe->id
         ]);
-        
+
         foreach ($request['ingredient'] as $ingredient) {
             $ingredientObject = IngredientRecipes::create([
-                'recipe_id' => $recipe->id,                    
+                'recipe_id' => $recipe->id,
                 'ingredient_id' => $ingredient['ingredient_id'],
                 'quantity' => $ingredient['quantity']
             ]);
         }
-        
+
         foreach ($request['tags'] as  $tag) {
             $tagArray = RecipeTag::create([
-                'recipe_id' => $recipe->id, 
+                'recipe_id' => $recipe->id,
                 'tag_id' => $tag['tag_id'],
             ]);
         }
 
         return new RecipesResource(Recipe::with(['user', 'tags', 'directions', 'ingredients'])->get());
-   }
-    public function updateform(Request $request, Recipe $recipe)
-    {
-        // Log::info($request);
-        // $recipe->title = $request->title;
-        $recipe->update([
-            'title' => $request['title'],
-            'servings' => $request['servings'],
-            'cooking_time' => $request['cooking_time'],
-            'image' => $request['image'],
-            'user_id' => $request['user_id']
-        ]);
+    }
 
-        $direction = Direction::update([
+
+    public function updateform(Request $request)
+    {
+        Log::info($request);
+
+        $recipe = Recipe::findOrFail($request->input("recipe_id"));
+
+        $recipe->title = $request->input('title'); // changes the title
+        $recipe->image = $request->input('image');
+        $recipe->servings = $request->input('servings');
+        $recipe->cooking_time = $request->input('cooking_time');
+        $recipe->user_id = $request->input('user_id');
+
+        $recipe->save();
+
+        // $recipe->tags()->delete();
+
+        $tags = RecipeTag::where('recipe_id', $request->input('recipe_id'))->delete();
+        $directions = Direction::where('recipe_id', $request->input('recipe_id'))->delete();
+
+        //foreach ($request['ingredient'] as $ingredient) {
+            $ingredients = IngredientRecipes::where('recipe_id', $request->input('recipe_id'))->delete(); 
+        //}
+
+        $direction = Direction::create([
             'direction' => $request['direction'],
             'recipe_id' => $recipe->id
         ]);
-        
-        foreach ($request['ingredient'] as $ingredient) {
-            $ingredientObject = IngredientRecipes::update([
-                'recipe_id' => $recipe->id,                    
-                'ingredient_id' => $ingredient['ingredient_id'],
-                'quantity' => $ingredient['quantity']
+
+        foreach ($request->input('ingredient') as $ingredient) {
+            $ingredientObject = IngredientRecipes::create([
+                'recipe_id' => $recipe->id,
+                'ingredient_id' => $ingredient['id'],
+                'quantity' => $ingredient['pivot']['quantity']
             ]);
         }
-        
-        foreach ($request['tags'] as  $tag) {
-            $tagArray = RecipeTag::update([
-                'recipe_id' => $recipe->id, 
-                'tag_id' => $tag['tag_id'],
+
+        foreach ($request->input('tags') as $tag) {
+            $tagArray = RecipeTag::create([
+                'recipe_id' => $recipe->id,
+                'tag_id' => $tag['id'],
             ]);
         }
 
         return new RecipesResource(Recipe::with(['user', 'tags', 'directions', 'ingredients'])->get());
-   }
+    }
 
+    // public function deleteRecipe(Request $request)
+    // {
+    //     $recipe = Recipe::delete([
+    //         'title' => $request['title'],
+    //         'servings' => $request['servings'],
+    //         'cooking_time' => $request['cooking_time'],
+    //         'image' => $request['image'],
+    //         'user_id' => $request['user_id']
+    //     ]);
+
+    //     $direction = Direction::delete([
+    //         'direction' => $request['direction'],
+    //         'recipe_id' => $recipe->id
+    //     ]);
+    //     foreach ($request['ingredient'] as $ingredient) {
+    //         $ingredientObject = IngredientRecipes::delete([
+    //             'recipe_id' => $recipe->id,
+    //             'ingredient_id' => $ingredient['ingredient_id'],
+    //             'quantity' => $ingredient['quantity']
+    //         ]);
+    //     }
+
+    //     foreach ($request['tags'] as  $tag) {
+    //         $tagArray = RecipeTag::delete([
+    //             'recipe_id' => $recipe->id,
+    //             'tag_id' => $tag['tag_id'],
+    //         ]);
+    //     }
+    //     $response=["message"=>"Post was deleted"];
+    //     return $response($response, 200)
+    // }
+    
 }
