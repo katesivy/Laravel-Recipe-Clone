@@ -99,6 +99,111 @@ class RecipesIngredientsSeeder extends Seeder
                         'amt' =>  '1/4 tsp',
                     ]
                 ]
+            ],
+            [
+                'recipe_id' => 4,
+                'quantity' => [
+                    [
+                        'id' => 119,
+                        'amt' =>  '4 oz',
+                    ],
+                    [
+                        'id' => 14,
+                        'amt' =>  '1.5 Cups',
+                    ],
+                    [
+                        'id' => 90,
+                        'amt' =>  '1 Cup',
+                    ],
+                    [
+                        'id' => 71,
+                        'amt' =>  '1 tsp',
+                    ],
+                    [
+                        'id' => 11,
+                        'amt' =>  '3',
+                    ]
+                ]
+            ],
+            [
+                'recipe_id' => 5,
+                'quantity' => [
+                    [
+                        'id' => 97,
+                        'amt' =>  '1 Cup',
+                    ],
+                    [
+                        'id' => 17,
+                        'amt' =>  '2 Cups',
+                    ],
+                    [
+                        'id' => 92,
+                        'amt' =>  '2 tlb',
+                    ]
+                ]
+            ],
+            [
+                'recipe_id' => 6,
+                'quantity' => [
+                    [
+                        'id' => 39,
+                        'amt' =>  '1 lb',
+                    ],
+                    [
+                        'id' => 22,
+                        'amt' =>  '2 tsp',
+                    ],
+                    [
+                        'id' => 23,
+                        'amt' =>  '1 tsp',
+                    ]
+                ]
+            ],
+            [
+                'recipe_id' => 7,
+                'quantity' => [
+                    [
+                        'id' => 66,
+                        'amt' =>  '4 cups',
+                    ],
+                    [
+                        'id' => 61,
+                        'amt' =>  '1 medium',
+                    ],
+                    [
+                        'id' => 64,
+                        'amt' =>  '8 oz, chopped',
+                    ],
+                    [
+                        'id' => 63,
+                        'amt' =>  '4',
+                    ],
+                    [
+                        'id' => 62,
+                        'amt' =>  '2 stalks',
+                    ]
+                ]
+            ],
+            [
+                'recipe_id' => 8,
+                'quantity' => [
+                    [
+                        'id' => 38,
+                        'amt' =>  '1 lb, cooked & shredded',
+                    ],
+                    [
+                        'id' => 121,
+                        'amt' =>  '10',
+                    ],
+                    [
+                        'id' => 49,
+                        'amt' =>  '1 tsp',
+                    ],
+                    [
+                        'id' => 50,
+                        'amt' =>  '1 tsp',
+                    ]
+                ]
             ]
         ];
         foreach ($recIngredArray as &$recIngredObj) {

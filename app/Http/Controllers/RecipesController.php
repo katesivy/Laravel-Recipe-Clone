@@ -24,9 +24,7 @@ class RecipesController extends Controller
         ->get());
     }
 
-
-
-
+   
     // public function create ()
     // {
     //     $recipe = Recipe::store([

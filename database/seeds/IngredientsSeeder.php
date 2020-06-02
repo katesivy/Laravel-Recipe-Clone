@@ -39,7 +39,13 @@ class IngredientsSeeder extends Seeder
                 'ingredients' => ['chorizo', 'chicken breasts', 'ground beef', 'ground pork']
             ],
             [
-                'ingredients' => ['cumin', 'oregano', 'paprika', 'garlic']
+                'ingredients' => ['shrimp', 'scallops', 'crab meat', 'lobster tails']
+            ],
+            [
+                'ingredients' => ['pork butt', 'pork chops', 'pork loin', 'bacon']
+            ],
+            [
+                'ingredients' => ['cumin', 'oregano', 'onion powder', 'garlic']
             ],
             [
                 'ingredients' => ['spaghetti noodles', 'macaroni noodles', 'rotini', 'penne']
@@ -52,6 +58,48 @@ class IngredientsSeeder extends Seeder
             ],
             [
                 'ingredients' => ['chicken broth', 'beef broth', 'water', 'tomato sauce']
+            ],
+            [
+                'ingredients' => ['cherry pie filling', 'almond flavoring', 'vanilla', 'butterscotch chips']
+            ],
+            [
+                'ingredients' => ['refried beans', 'lemon juice', 'green chilies', 'black olives']
+            ],
+            [
+                'ingredients' => ['cheddar cheese', 'avocados', 'taco seasoning mix', 'green onions']
+            ],
+            [
+                'ingredients' => ['tortilla chips', 'taco shells', 'potato chips', 'corn flakes']
+            ],
+            [
+                'ingredients' => ['cashews', 'peanuts', 'walnuts', 'pine nuts']
+            ],
+            [
+                'ingredients' => ['coconut', 'confectioners swerve', 'lakanto', 'brown sugar']
+            ],
+            [
+                'ingredients' => ['rum', 'vodka', 'instant vanilla pudding', 'yellow cake mix']
+            ],
+            [
+                'ingredients' => ['oats', 'bread flour', 'all purpose flour', 'gluten free flour']
+            ],
+            [
+                'ingredients' => ['potatoes', 'cauliflower', 'green beans', 'arugula']
+            ],
+            [
+                'ingredients' => ['cucumber', 'squash', 'lemon', 'lime']
+            ],
+            [
+                'ingredients' => ['spaghetti squash', 'watermelon', 'ginger', 'cilantro']
+            ],
+            [
+                'ingredients' => ['parsley', 'rosemary', 'thyme', 'sage']
+            ],
+            [
+                'ingredients' => ['canned pumpkin', 'instant coffee', 'bakers chocolate', 'mayonnaise']
+            ],
+            [
+                'ingredients' => ['tortillas']
             ]
 
         ];
