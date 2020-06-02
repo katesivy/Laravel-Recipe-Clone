@@ -149,6 +149,9 @@ class AuthController extends Controller
         Log::info($request);
 
         $recipe = Recipe::findOrFail($request->input("recipe_id"));
+
+        
+
         // $recipe->tags()->delete();
 
         $tags = RecipeTag::where('recipe_id', $request->input('recipe_id'))->delete();
@@ -171,3 +174,55 @@ class AuthController extends Controller
     
      }
 }
+
+
+public function updateform(Request $request)
+    {
+        Log::info($request);
+
+        $recipe = Recipe::findOrFail($request->input("recipe_id"));
+
+        $recipe->title = $request->input('title'); // changes the title
+        $recipe->image = $request->input('image');
+        $recipe->servings = $request->input('servings');
+        $recipe->cooking_time = $request->input('cooking_time');
+        $recipe->user_id = $request->input('user_id');
+
+        $recipe->save();
+
+        // $recipe->tags()->delete();
+
+        $tags = RecipeTag::destroy($request->input('tags'));
+        $directions = Direction::where('recipe_id', $request->input('recipe_id'))->delete();
+
+        foreach ($request['ingredient'] as $ingredient) {
+            $ingredients = IngredientRecipes::where('ingredient_id', $ingredient['id'])->delete(); 
+        }
+
+        $direction = Direction::create([
+            'direction' => $request['direction'],
+            'recipe_id' => $recipe->id
+        ]);
+
+        foreach ($request['ingredient'] as $ingredient) {
+            $ingredientObject = IngredientRecipes::create([
+                'recipe_id' => $recipe->id,
+                'ingredient_id' => $ingredient['ingredient_id'],
+                'quantity' => $ingredient['quantity']
+            ]);
+        }
+
+        foreach ($request['tags'] as  $tag) {
+            $tagArray = RecipeTag::create([
+                'recipe_id' => $recipe->id,
+                'tag_id' => $tag['id'],
+            ]);
+        }
+
+        return new RecipesResource(Recipe::with(['user', 'tags', 'directions', 'ingredients'])->get());
+    }
+
+    $recipe->title = $request->input('title'); // changes the title
+        $recipe = Recipe::where("recipe_id", )->update(["title" => $request->input("title")]);
+        return ('updated');
+

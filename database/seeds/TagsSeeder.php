@@ -56,6 +56,9 @@ class TagsSeeder extends Seeder
             ],
             [
                 'category' => "one dish"
+            ],
+            [
+                'category' => "chocolate"
             ]
         ];
         //  Recipe::create($tagsArray[0]);

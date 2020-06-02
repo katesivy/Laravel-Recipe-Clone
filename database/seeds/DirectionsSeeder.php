@@ -20,6 +20,26 @@ class DirectionsSeeder extends Seeder
             [
                 'recipe_id' => 3,
                 'directions' => ['Preheat the oven to 325°', 'Mix melted butter with almond flour. Press into pie dish and bake at 325° for 15 min. or until golden brown. Let cool.', 'Beat eggs in a large bowl; add remaining ingredients. Bake at 350° for 45 min.']
+            ],
+            [
+                'recipe_id' => 4,
+                'directions' => ['Melt chocolate in microwave in 30-second increments, stirring frequently. Let cool.', 'In a stand mixer, beat butter and confectioners swerve for 30 seconds.', 'Slowly add in the vanilla and chocolate with the mixer on med-low.', 'Increase the mixer speed to medium-high, add 1 egg, and beat for 5 minutes. Then add the next egg, beat for 5 minutes, and repeat the process with the last egg.', 'Scoop filling into pie crust and refrigerate.']
+            ],
+            [
+                'recipe_id' => 5,
+                'directions' => ['Heat oats, milk, & sugar in a small pot on medium heat for 5 min until desired consistency, stirring occassionally.']
+            ],
+            [
+                'recipe_id' => 6,
+                'directions' => ['Form beef into 4-oz patties and sprinkle with salt & pepper.', 'Cook in large skillet over med-high heat approx. 5 min on each side.', 'Serve on buns with desired toppings.']
+            ],
+            [
+                'recipe_id' => 7,
+                'directions' => ['Cook vegetables in 1 tlb oil for 5-10 min in a skillet, if using a slow-cooker, or in the instant pot.', 'Add vegetables and broth to slow cooker or instant pot. Cook in slow cooker on low for 2-4 hours or in instant pot for 20 min.']
+            ],
+            [
+                'recipe_id' => 8,
+                'directions' => ['Shred chicken and place approx. 2 tlb in each tortilla.', 'Roll tortillas into tight rolls', 'Fry tortillas in a large skillet on med. heat until golden brown.', 'Top with shredded lettuce, tomatoes, salsa, and sour cream.']
             ]
         ];
         // Direction::create($directionsArray[0]);

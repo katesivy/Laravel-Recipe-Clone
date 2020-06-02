@@ -35,4 +35,3 @@ Route::get('/ingredients/{recipe_id}', 'IngredientsController@recipeIds');
 Route::get('/tags/{recipe_id}', 'TagsController@recipeIds');
 Route::get('/modify', 'RecipesController@getRecipesByUser');
 
-Route::put('/modify', 'RecipesController@update');
